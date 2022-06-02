@@ -27,7 +27,7 @@ cs_total = 0
 sum = 0
 for idx1, utterance in enumerate(utterances):
     code_switch = False
-    init_lang = "" 
+    lang = "" 
     speaker = utterance[0][1]
     for idx2, word in enumerate(utterance):
         if idx2 == 0:
