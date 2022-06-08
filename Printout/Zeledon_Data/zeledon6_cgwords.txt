@@ -1,0 +1,7 @@
+Self:
+Speaker: ABI - Avg: 1.3527323130672542
+Speaker: ELL - Avg: 1.4934262799821227
+
+Outside:
+Speaker: ABI - Avg: 2.043041881859264
+Speaker: ELL - Avg: 3.1445714502715223

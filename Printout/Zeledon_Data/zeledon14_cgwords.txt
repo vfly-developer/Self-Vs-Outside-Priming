@@ -1,0 +1,7 @@
+Self:
+Speaker: HER - Avg: 1.2555768794238429
+Speaker: LAR - Avg: 1.5722045757952399
+
+Outside:
+Speaker: HER - Avg: 2.4536205864751643
+Speaker: LAR - Avg: 1.7052663076002392

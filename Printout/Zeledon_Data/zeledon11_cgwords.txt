@@ -1,0 +1,9 @@
+Self:
+Speaker: ANT - Avg: 3.6076526857983815
+Speaker: SEA - Avg: 7.178687537627936
+Speaker: OSE - Avg: N/A
+
+Outside:
+Speaker: ANT - Avg: 1.323973509933775
+Speaker: SEA - Avg: 0.3782781456953642
+Speaker: OSE - Avg: N/A

@@ -1,0 +1,9 @@
+Self:
+Speaker: NAT - Avg: 0.8419019712306873
+Speaker: JAS - Avg: 2.3317192843762355
+Speaker: OSE - Avg: N/A
+
+Outside:
+Speaker: NAT - Avg: 1.9443926478423017
+Speaker: JAS - Avg: 2.6274742838408263
+Speaker: OSE - Avg: N/A

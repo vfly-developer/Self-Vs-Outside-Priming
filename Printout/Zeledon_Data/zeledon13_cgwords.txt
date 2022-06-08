@@ -1,0 +1,9 @@
+Self:
+Speaker: ARI - Avg: 6.627818930041153
+Speaker: AVE - Avg: 5.9052371669915535
+Speaker: OSE - Avg: N/A
+
+Outside:
+Speaker: ARI - Avg: 7.848732943469786
+Speaker: AVE - Avg: 3.2703053931124106
+Speaker: OSE - Avg: N/A

@@ -1,0 +1,11 @@
+Self:
+Speaker: spa - Avg: N/A
+Speaker: eng&spa - Avg: N/A
+Speaker: eng - Avg: N/A
+Speaker: 999 - Avg: N/A
+
+Outside:
+Speaker: spa - Avg: N/A
+Speaker: eng&spa - Avg: N/A
+Speaker: eng - Avg: N/A
+Speaker: 999 - Avg: N/A
