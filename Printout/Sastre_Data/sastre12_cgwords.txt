@@ -1,0 +1,7 @@
+Self:
+Speaker: MAD - Avg: 2.3253838105767732
+Speaker: SAM - Avg: 4.574134034508236
+
+Outside:
+Speaker: MAD - Avg: 4.0360787675968695
+Speaker: SAM - Avg: 4.891653068562105

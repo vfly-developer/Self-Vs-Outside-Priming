@@ -1,18 +1,18 @@
 import sys
 import numpy as np
-from os import listdir
-from os.path import isfile, join
+from os import listdir, makedirs
+from os.path import isfile, join, dirname
 import math
 import re
 
 path = sys.argv[1]
 
-def exec(file):
+def exec(path, file):
     init = 1
     utterances = []
     utterances.append([])
 
-    with open(file, "r") as f:
+    with open(join(path, file), "r") as f:
         for idx, line in enumerate(f.readlines()[1:]):
             stripped = line.replace('\n', '').split('\t')
             #print(stripped)
@@ -116,9 +116,11 @@ def exec(file):
 
     #print out avg length between self and outside priming code switches
 
-    save_path = "/Printout"
-    file_name = file.split(".")[0]
-    with open(file_name, "w") as f:
+    save_path = "Printout"
+    file_name = file.split(".")[0] + ".txt"
+    final = join(save_path, path, file_name)
+    makedirs(dirname(final), exist_ok=True)
+    with open(final, "w") as f:
         f.write("Self:\n")
         for idx, tup in enumerate(sum_and_counts_self_prime):
             sum = tup[0]
@@ -139,7 +141,7 @@ def exec(file):
 
 onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
 for file in onlyfiles:
-    exec(join(path, file))
+    exec(path, file)
 '''
 for collapse in collapsed:
     occurences = 0

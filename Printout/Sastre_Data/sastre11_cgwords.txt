@@ -1,0 +1,7 @@
+Self:
+Speaker: DIE - Avg: 2.1709224069675375
+Speaker: EVE - Avg: 3.51734815066169
+
+Outside:
+Speaker: DIE - Avg: 3.79249554631829
+Speaker: EVE - Avg: 2.0650237529691213

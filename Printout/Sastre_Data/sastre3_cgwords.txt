@@ -1,0 +1,9 @@
+Self:
+Speaker: OLI - Avg: 1.6452780519907866
+Speaker: LAN - Avg: N/A
+Speaker: MAS - Avg: 1.4545658216238544
+
+Outside:
+Speaker: OLI - Avg: 2.143364333835576
+Speaker: LAN - Avg: 3.0865416255347156
+Speaker: MAS - Avg: 2.0018546770767895

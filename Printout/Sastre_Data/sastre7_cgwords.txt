@@ -1,0 +1,9 @@
+Self:
+Speaker: JAD - Avg: 1.639841986455982
+Speaker: JUL - Avg: 6.740316027088036
+Speaker: OSE - Avg: N/A
+
+Outside:
+Speaker: JAD - Avg: 14.287358916478555
+Speaker: JUL - Avg: 9.092641083521444
+Speaker: OSE - Avg: N/A
