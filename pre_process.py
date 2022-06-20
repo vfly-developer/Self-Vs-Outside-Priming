@@ -20,7 +20,8 @@ def exec(path, file):
                 if int(stripped[1]) != init: 
                     utterances.append([])
                     init = int(stripped[1])
-                utterances[init-1].append((stripped[3], stripped[8], stripped[9]))
+                #print((stripped[3], stripped[7], stripped[8]))
+                utterances[init-1].append((stripped[3], stripped[7], stripped[8]))
             except IndexError:
                 # this is only here to check the last row which denotes the number of rows
                 pass
@@ -56,15 +57,11 @@ def exec(path, file):
         sum += len(utterance) - 1 # accounting for ever-prevalent ending punctuation
     avg_utterance_length = sum / utterances_length
 
-    #TODO: sentence parsing
+    #TODO: Comment the CODE!!!! and implement cognates
 
-    # allows you to check whether if the preceding utterance of a speaker was a code-switch or it
-    # or if you had a code-switch from the same speaker in the second to last utterance 
-    # find distance to most recent code-switch to yourself vs not yourself 
-    # apply cognatal priming to the set of features later as well 
-
-    # later on -> maybe also try to find a way to split by sentence using a sentence tokenizer
-    # ie first collapsing into utterance cluster and then using the sentence tokenizer on it
+    # Commentation still needed to be done next time I return to this project, will most likely also try to preprocess the
+    # current cognates in the csv into a usable form for the project, will try to do something regarding analysis on the 
+    # congates once the commentation of the code is done. 
 
     #collapses summarizes by same person in a row into one list
     i = 0
@@ -78,12 +75,6 @@ def exec(path, file):
         summarized[idx+1] = tuple(list_line)
 
     # check to see self-priming from close-by utterances 
-
-    self_priming = 0
-    outside_priming = 0
-
-    codeswitched = []
-    cs_in_collapsed = 0
 
     # fix this to work with new melting
 
@@ -140,26 +131,9 @@ def exec(path, file):
                 f.write("Speaker: " + str(speakers[idx]) + " - Avg: N/A\n")
 
 onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
+
 for file in onlyfiles:
     exec(path, file)
-'''
-for collapse in collapsed:
-    occurences = 0
-    for line in collapse:
-        if line[0] == True:
-            occurences += 1
-    if occurences > 1:
-        self_priming += 1
-    codeswitched.append((occurences > 0))
-    if occurences > 0:
-        cs_in_collapsed += 1 
-
-for idx, codeswitch in enumerate(codeswitched[1:]):
-    if codeswitched[idx] == True and codeswitch:
-        outside_priming += 1
-'''
-
-
 
 
 '''

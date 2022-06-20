@@ -1,11 +1,7 @@
 Self:
-Speaker: eng - Avg: N/A
-Speaker: 999 - Avg: N/A
-Speaker: spa - Avg: N/A
-Speaker: eng&spa - Avg: N/A
+Speaker: BRA - Avg: 6.571533561979422
+Speaker: EVN - Avg: N/A
 
 Outside:
-Speaker: eng - Avg: N/A
-Speaker: 999 - Avg: N/A
-Speaker: spa - Avg: N/A
-Speaker: eng&spa - Avg: N/A
+Speaker: BRA - Avg: N/A
+Speaker: EVN - Avg: N/A
