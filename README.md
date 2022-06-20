@@ -15,7 +15,7 @@ distance between priming codeswitches for the respective speakers in a file. The
 I hope to be able to implement the effect cognates have on the codeswitch as well by investigating the prevalence of a nearby cognate to a codeswitch. I'm currently using the cognates_en_es.csv file that is available publicly on https://github.com/vsoto/cognates_en_es and will be referencing them at the end using the requested citations. I also hope to do an even greater indepth analysis on the current files (and most likely find more) to have a more well-tested conclusion regarding these types of priming. 
 
 ## Thanks
-Thank you to Professor Marten van Schijndel and the C.Pysd Research Lab for leading me and guiding me through the process of exploring and researching about a topic I'm interested in. I would honestly have had no clue where to start if not for their direction, specifically Professor Marten's. 
+Thank you to Professor Marten van Schijndel and the C.Pysd Research Lab for leading me and guiding me through the process of exploring and researching about a topic I'm interested in. I would honestly have had no clue where to start if not for their direction, specially Professor Marten's. 
 
 ## Citations
 The Role of Cognate Words, POS Tags and Entrainment in Code-Switching; Soto, Victor and Cestero, Nishmar and Hirschberg, Julia; Proc. Interspeech 2018; 1938--1942; 2018
