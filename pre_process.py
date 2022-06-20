@@ -1,10 +1,8 @@
 import sys
-import numpy as np
 from os import listdir, makedirs
 from os.path import isfile, join, dirname
-import math
-import re
 
+# folder path for the files we want to run the script on
 path = sys.argv[1]
 
 def exec(path, file):
@@ -13,19 +11,22 @@ def exec(path, file):
     utterances.append([])
 
     with open(join(path, file), "r") as f:
+        # breaks up file into utterances using the utterance_id found in the tsv
         for idx, line in enumerate(f.readlines()[1:]):
             stripped = line.replace('\n', '').split('\t')
-            #print(stripped)
             try:
                 if int(stripped[1]) != init: 
                     utterances.append([])
                     init = int(stripped[1])
-                #print((stripped[3], stripped[7], stripped[8]))
-                utterances[init-1].append((stripped[3], stripped[7], stripped[8]))
+                utterances[init-1].append((stripped[3], stripped[8], stripped[9]))
             except IndexError:
-                # this is only here to check the last row which denotes the number of rows
+                # this is only here to skip the last row which denotes the number of rows
                 pass
 
+    # transforms the current un-altered list of utterances to a summarized version
+    # summarized keeps track of whether a codeswitch happened, the language the
+    # utterance switched to, the speaker, and the index of where you can find it
+    # inside the tsv.  
     utterances_length = len(utterances)
     summarized = []
     cs_total = 0
@@ -54,7 +55,7 @@ def exec(path, file):
                         code_switch = True
                     cs_total += 1
         summarized.append((code_switch, lang, speaker, idx1, 0))
-        sum += len(utterance) - 1 # accounting for ever-prevalent ending punctuation
+        sum += len(utterance) - 1 # accounting for ending punctuation
     avg_utterance_length = sum / utterances_length
 
     #TODO: Comment the CODE!!!! and implement cognates
@@ -63,7 +64,7 @@ def exec(path, file):
     # current cognates in the csv into a usable form for the project, will try to do something regarding analysis on the 
     # congates once the commentation of the code is done. 
 
-    #collapses summarizes by same person in a row into one list
+    # keeps track of utterances made by the same person in a row into one utterance cluster
     i = 0
     prev = summarized[0][2]
     for idx, line in enumerate(summarized[1:]):
@@ -74,19 +75,18 @@ def exec(path, file):
         list_line[4] = i
         summarized[idx+1] = tuple(list_line)
 
-    # check to see self-priming from close-by utterances 
-
-    # fix this to work with new melting
-
     last_codeswitches = []
     sum_and_counts_self_prime = []
     sum_and_counts_outside_prime = []
     last_switch_speaker = -1
-    # tuple of line number, utterance number, distance between code switch, number of cs
+    # last_codeswitches: tuple of line number, utterance number 
+    # sum_and_counts_alpha: distance between code switch, number of cs
     for i in range(len(speakers)):
         last_codeswitches.append((-1, -1))
         sum_and_counts_self_prime.append((0,0))
         sum_and_counts_outside_prime.append((0,0))
+
+    # Goes through each line inside of summarized to find instances of priming 
     for line in summarized:
         if line[0] == True:
             speaker = line[2]
@@ -105,8 +105,7 @@ def exec(path, file):
             last_codeswitches[speaker_idx] = (line[3], line[4])
             last_switch_speaker = speaker_idx
 
-    #print out avg length between self and outside priming code switches
-
+    # Prints out resultant averages to the Printout folder, keeping the same path as the data outside of the new directory
     save_path = "Printout"
     file_name = file.split(".")[0] + ".txt"
     final = join(save_path, path, file_name)
@@ -130,12 +129,14 @@ def exec(path, file):
             else:
                 f.write("Speaker: " + str(speakers[idx]) + " - Avg: N/A\n")
 
+# finds all the relevant files within a directory to run the script on
 onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
 
 for file in onlyfiles:
     exec(path, file)
 
 
+# Bank of printout statements for quick testing if needdd
 '''
 print(last_codeswitches)
 print(sum_and_counts_self_prime)

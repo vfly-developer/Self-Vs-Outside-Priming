@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 import sys
 import re
 
+# root directory we want to extract all the files from (in this case Printoht)
 root = sys.argv[1]
 
+# initializes dictionary to later turn into Dataframe for pandas
 d = {}
 d["Self"] = []
 d["Outside"] = []
@@ -22,6 +24,7 @@ for file in all_files:
     with open(file, "r") as f:
         contents = [line.replace('\n', '') for line in f.readlines()]
     pruned = []
+    # Prune all contents in the printouts to be purely statistical data we need
     for line in contents:
         alpha = re.sub('[^a-zA-Z]+', '', line)
         if alpha == "Self" or alpha == "Outside":
@@ -30,8 +33,7 @@ for file in all_files:
             test = re.findall('\d*\.?\d+', line)
             if test:
                 pruned.append(test[0])
-
-    #print(pruned) 
+    # Separates the stats into that of Self vs Outside 
     curr = "Self"
     for prune in pruned[1:]:
         if prune == "Outside":
@@ -39,9 +41,7 @@ for file in all_files:
         else:
             d[curr].append(float(prune))
 
-#print(data["Self"])
-#print(data["Outside"])
-
+# Finds the average of each list to allow for comparison
 def find_avg(list):
     sum = 0
     count = 0
@@ -52,19 +52,15 @@ def find_avg(list):
 
 df = pd.DataFrame(data=d)
 
+# Mass comment for different plots I found were useful to look at with regards to the data
 '''
 df.plot.hist(alpha=0.5)
-df.plot.box()
 '''
+df.plot.box()
 
 d["Average"] = []
 d["Average"].append(find_avg(d["Self"]))
 d["Average"].append(find_avg(d["Outside"]))
 
 print(d["Average"])
-
-
 plt.show()
-
-
-#print(df.dtypes)
