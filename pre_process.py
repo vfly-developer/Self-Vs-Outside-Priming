@@ -1,11 +1,10 @@
 import sys
 from os import listdir, makedirs
 from os.path import isfile, join, dirname
+import csv
 
 # folder path for the files we want to run the script on
-path = sys.argv[1]
-
-def exec(path, file):
+def prune_files(path, file):
     init = 1
     utterances = []
     utterances.append([])
@@ -41,28 +40,23 @@ def exec(path, file):
         # keeps track of number of speakers
         if not speaker in speakers:
             speakers.append(speaker)
-        for idx2, word in enumerate(utterance):
+        for idx2, tup in enumerate(utterance):
             if idx2 == 0:
-                lang = word[2]
+                lang = tup[2]
             else:
-                if lang == "eng&spa" and word[2] != "eng&spa" and word[2] != "999":
-                    lang = word[2]
-                if lang != word[2] and word[2] != "eng&spa" and lang != "eng&spa" and word[2] != "999":
+                if lang == "eng&spa" and tup[2] != "eng&spa" and tup[2] != "999":
+                    lang = tup[2]
+                if lang != tup[2] and tup[2] != "eng&spa" and lang != "eng&spa" and tup[2] != "999":
                     if code_switch and not accounted:
                         mult_cs += 1
                         accounted = True
                     else:
                         code_switch = True
                     cs_total += 1
-        summarized.append((code_switch, lang, speaker, idx1, 0))
+        word = utterance[0][0]
+        summarized.append((code_switch, lang, speaker, idx1, 0, word))
         sum += len(utterance) - 1 # accounting for ending punctuation
     avg_utterance_length = sum / utterances_length
-
-    #TODO: Comment the CODE!!!! and implement cognates
-
-    # Commentation still needed to be done next time I return to this project, will most likely also try to preprocess the
-    # current cognates in the csv into a usable form for the project, will try to do something regarding analysis on the 
-    # congates once the commentation of the code is done. 
 
     # keeps track of utterances made by the same person in a row into one utterance cluster
     i = 0
@@ -74,68 +68,20 @@ def exec(path, file):
         list_line = list(line)
         list_line[4] = i
         summarized[idx+1] = tuple(list_line)
+    return summarized, speakers, avg_utterance_length, file
 
-    last_codeswitches = []
-    sum_and_counts_self_prime = []
-    sum_and_counts_outside_prime = []
-    last_switch_speaker = -1
-    # last_codeswitches: tuple of line number, utterance number 
-    # sum_and_counts_alpha: distance between code switch, number of cs
-    for i in range(len(speakers)):
-        last_codeswitches.append((-1, -1))
-        sum_and_counts_self_prime.append((0,0))
-        sum_and_counts_outside_prime.append((0,0))
+# returns cognates found in csv file "cognates_en_es.csv"
+def get_cognates(file):
+    eng_cognates = []
+    esp_cognates = []
 
-    # Goes through each line inside of summarized to find instances of priming 
-    for line in summarized:
-        if line[0] == True:
-            speaker = line[2]
-            speaker_idx = speakers.index(speaker)
-            
-            if last_codeswitches[speaker_idx][0] != -1:
-                if speaker_idx == last_switch_speaker:
-                    new_sum = sum_and_counts_self_prime[speaker_idx][0] + (line[3] - last_codeswitches[speaker_idx][0])
-                    new_count = sum_and_counts_self_prime[speaker_idx][1] + 1
-                    sum_and_counts_self_prime[speaker_idx] = (new_sum, new_count)
-                elif speaker_idx != last_switch_speaker:
-                    new_sum = sum_and_counts_outside_prime[speaker_idx][0] + (line[3] - last_codeswitches[last_switch_speaker][0])
-                    new_count = sum_and_counts_outside_prime[speaker_idx][1] + 1
-                    sum_and_counts_outside_prime[speaker_idx] = (new_sum, new_count)
-
-            last_codeswitches[speaker_idx] = (line[3], line[4])
-            last_switch_speaker = speaker_idx
-
-    # Prints out resultant averages to the Printout folder, keeping the same path as the data outside of the new directory
-    save_path = "Printout"
-    file_name = file.split(".")[0] + ".txt"
-    final = join(save_path, path, file_name)
-    makedirs(dirname(final), exist_ok=True)
-    with open(final, "w") as f:
-        f.write("Self:\n")
-        for idx, tup in enumerate(sum_and_counts_self_prime):
-            sum = tup[0]
-            count = tup[1]
-            if sum != 0:
-                f.write("Speaker: " + str(speakers[idx]) + " - Avg: " + str(sum / count / avg_utterance_length) + "\n")
-            else:
-                f.write("Speaker: " + str(speakers[idx]) + " - Avg: N/A\n")
-        f.write("\n")
-        f.write("Outside:\n")
-        for idx, tup in enumerate(sum_and_counts_outside_prime):
-            sum = tup[0]
-            count = tup[1]
-            if sum != 0:
-                f.write("Speaker: " + str(speakers[idx]) + " - Avg: " + str(sum / count / avg_utterance_length) + "\n")
-            else:
-                f.write("Speaker: " + str(speakers[idx]) + " - Avg: N/A\n")
-
-# finds all the relevant files within a directory to run the script on
-onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
-
-for file in onlyfiles:
-    exec(path, file)
-
-
+    with open(file) as csvfile:
+        csvreader = csv.reader(csvfile, delimiter=',')
+        for idx, line in enumerate(csvreader):
+            if idx != 0:
+                eng_cognates.append(line[0])
+                esp_cognates.append(line[1])
+    return eng_cognates, esp_cognates
 # Bank of printout statements for quick testing if needdd
 '''
 print(last_codeswitches)
