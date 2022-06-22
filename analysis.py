@@ -4,7 +4,7 @@ from os.path import isfile, join, dirname
 from pre_process import prune_files, get_cognates
 
 def self_outside_priming(summarized, speakers, avg_utterance_length, file):
-    #TODO: Comment the CODE!!!! and implement cognates
+    #TODO: ask for advice regarding cognates at meeting tomorrow
 
     # Commentation still needed to be done next time I return to this project, will most likely also try to preprocess the
     # current cognates in the csv into a usable form for the project, will try to do something regarding analysis on the 
