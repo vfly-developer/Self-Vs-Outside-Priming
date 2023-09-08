@@ -1,7 +1,0 @@
-Self:
-Speaker: LUI - Avg: 2.556092295947244
-Speaker: AVA - Avg: 1.374123043712898
-
-Outside:
-Speaker: LUI - Avg: 2.880049726312543
-Speaker: AVA - Avg: 2.2845964073702874

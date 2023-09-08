@@ -1,7 +1,0 @@
-Self:
-Speaker: NOA - Avg: 3.145038167938931
-Speaker: MEG - Avg: 16.668702290076336
-
-Outside:
-Speaker: NOA - Avg: 4.638931297709924
-Speaker: MEG - Avg: 6.211450381679389

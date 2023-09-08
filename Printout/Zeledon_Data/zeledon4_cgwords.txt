@@ -1,7 +1,0 @@
-Self:
-Speaker: HEN - Avg: 3.49264705882353
-Speaker: ETH - Avg: 4.11096256684492
-
-Outside:
-Speaker: HEN - Avg: 5.337309749074455
-Speaker: ETH - Avg: 2.9913101604278074

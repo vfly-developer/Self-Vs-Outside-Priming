@@ -1,7 +1,0 @@
-Self:
-Speaker: KEV - Avg: 1.4228813559322036
-Speaker: SOF - Avg: 0.9690072639225182
-
-Outside:
-Speaker: KEV - Avg: 1.4983050847457626
-Speaker: SOF - Avg: 0.9852080123266564

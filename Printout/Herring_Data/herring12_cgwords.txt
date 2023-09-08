@@ -1,7 +1,0 @@
-Self:
-Speaker: MIG - Avg: 1.4253461171228516
-Speaker: TIM - Avg: 2.481779121578612
-
-Outside:
-Speaker: MIG - Avg: 2.0625596753660087
-Speaker: TIM - Avg: 1.0157088296808219

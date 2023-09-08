@@ -1,7 +1,0 @@
-Self:
-Speaker: AUD - Avg: 1.7203332364622685
-Speaker: PAO - Avg: 1.702630049404243
-
-Outside:
-Speaker: AUD - Avg: 2.32652956561875
-Speaker: PAO - Avg: 1.7090620031796502

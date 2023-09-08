@@ -1,7 +1,0 @@
-Self:
-Speaker: CON - Avg: 1.1355077835433656
-Speaker: GAB - Avg: 3.8957746478873245
-
-Outside:
-Speaker: CON - Avg: 3.588299024918743
-Speaker: GAB - Avg: 2.08943661971831

@@ -1,7 +1,0 @@
-Self:
-Speaker: NIC - Avg: 2.1332218506131553
-Speaker: JES - Avg: 1.2367892976588628
-
-Outside:
-Speaker: NIC - Avg: 2.660535117056856
-Speaker: JES - Avg: 4.793756967670012

@@ -1,7 +1,0 @@
-Self:
-Speaker: AME - Avg: 3.60797342192691
-Speaker: CAR - Avg: 3.4758737085382823
-
-Outside:
-Speaker: AME - Avg: 5.673407482305358
-Speaker: CAR - Avg: 2.3978456903489405

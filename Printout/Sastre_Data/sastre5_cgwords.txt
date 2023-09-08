@@ -1,9 +1,0 @@
-Self:
-Speaker: LIL - Avg: 11.383810482026892
-Speaker: VIC - Avg: 12.271105826397147
-Speaker: OSE - Avg: N/A
-
-Outside:
-Speaker: LIL - Avg: 6.184637336504162
-Speaker: VIC - Avg: 6.442330558858502
-Speaker: OSE - Avg: N/A

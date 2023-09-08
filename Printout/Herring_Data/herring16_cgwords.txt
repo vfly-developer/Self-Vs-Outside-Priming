@@ -1,7 +1,0 @@
-Self:
-Speaker: ABE - Avg: 2.260718625238674
-Speaker: IAN - Avg: 2.4806804374240583
-
-Outside:
-Speaker: ABE - Avg: 1.7820980153908468
-Speaker: IAN - Avg: 4.0097205346294045

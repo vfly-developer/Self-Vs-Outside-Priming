@@ -1,9 +1,0 @@
-Self:
-Speaker: AAR - Avg: 1.5824260733744764
-Speaker: ALY - Avg: 0.48542359616513403
-Speaker: OSE - Avg: N/A
-
-Outside:
-Speaker: AAR - Avg: 0.9348898889106285
-Speaker: ALY - Avg: 1.1528810408921932
-Speaker: OSE - Avg: N/A

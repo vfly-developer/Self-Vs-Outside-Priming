@@ -1,7 +1,0 @@
-Self:
-Speaker: BRA - Avg: 6.571533561979422
-Speaker: EVN - Avg: N/A
-
-Outside:
-Speaker: BRA - Avg: N/A
-Speaker: EVN - Avg: N/A

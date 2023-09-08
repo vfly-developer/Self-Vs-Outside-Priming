@@ -1,7 +1,0 @@
-Self:
-Speaker: GRA - Avg: 1.1747995418098511
-Speaker: CAL - Avg: 0.4992898052691867
-
-Outside:
-Speaker: GRA - Avg: 10.720045819014892
-Speaker: CAL - Avg: 6.559297441771668

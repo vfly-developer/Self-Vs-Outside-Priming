@@ -1,7 +1,0 @@
-Self:
-Speaker: GIL - Avg: 2.6805335744969474
-Speaker: CHA - Avg: 2.025223879129845
-
-Outside:
-Speaker: GIL - Avg: 1.7076644811214108
-Speaker: CHA - Avg: 4.732082297083427

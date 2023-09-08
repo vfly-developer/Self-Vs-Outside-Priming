@@ -1,9 +1,0 @@
-Self:
-Speaker: JEN - Avg: 4.574288959901479
-Speaker: JOC - Avg: 3.1773105622827966
-Speaker: OSE - Avg: N/A
-
-Outside:
-Speaker: JEN - Avg: 3.297862898516875
-Speaker: JOC - Avg: 5.845568142006307
-Speaker: OSE - Avg: N/A

@@ -1,9 +1,0 @@
-Self:
-Speaker: COL - Avg: N/A
-Speaker: ELI - Avg: N/A
-Speaker: OSE - Avg: N/A
-
-Outside:
-Speaker: COL - Avg: N/A
-Speaker: ELI - Avg: N/A
-Speaker: OSE - Avg: N/A

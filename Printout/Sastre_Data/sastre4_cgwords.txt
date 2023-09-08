@@ -1,7 +1,0 @@
-Self:
-Speaker: EMI - Avg: 4.5008888888888885
-Speaker: GIA - Avg: 2.2398148148148147
-
-Outside:
-Speaker: EMI - Avg: 4.848412698412698
-Speaker: GIA - Avg: 3.994871794871795

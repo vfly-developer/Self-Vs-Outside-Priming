@@ -1,7 +1,0 @@
-Self:
-Speaker: KAY - Avg: 1.9280517254810314
-Speaker: VAL - Avg: 1.4441068785541793
-
-Outside:
-Speaker: KAY - Avg: 1.2344940406637064
-Speaker: VAL - Avg: 1.6387473708810472

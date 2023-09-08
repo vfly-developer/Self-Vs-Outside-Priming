@@ -1,7 +1,0 @@
-Self:
-Speaker: FEL - Avg: 0.6814079422382671
-Speaker: ELE - Avg: 6.598300240673887
-
-Outside:
-Speaker: FEL - Avg: 5.7919675090252705
-Speaker: ELE - Avg: 1.1924638989169674

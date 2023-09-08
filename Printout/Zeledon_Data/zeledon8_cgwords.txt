@@ -1,9 +1,0 @@
-Self:
-Speaker: MAR - Avg: 2.3649088071220046
-Speaker: FLA - Avg: 1.8097995885087252
-Speaker: OSE - Avg: N/A
-
-Outside:
-Speaker: MAR - Avg: 2.1989065000381007
-Speaker: FLA - Avg: 3.501962203764383
-Speaker: OSE - Avg: N/A
