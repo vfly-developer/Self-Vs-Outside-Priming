@@ -82,6 +82,100 @@ def get_cognates(file):
                 eng_cognates.append(line[0])
                 esp_cognates.append(line[1])
     return eng_cognates, esp_cognates
+
+def convert_to_sentences_sentimix(file):
+    sentences = []
+    with open(file, "r") as f:
+        lines = f.readlines()
+        curr_sentence = ""
+        for line in lines:
+            data = line.split()
+            if len(data) == 0:
+                sentences.append(curr_sentence)
+                curr_sentence = ""
+            elif data[0] != "meta" and '#' not in data[0] and '@' not in data[0]:
+                curr_sentence += data[0] + " "
+
+    return sentences
+
+def convert_to_sentences_sentiment140(file):
+    sentences = []
+    with open(file) as csvfile:
+        csvreader = csv.reader(csvfile, delimiter=',')
+        for line in csvreader:
+            line_lst = line[5].split()
+            new_lst = []
+            for elem in line_lst:
+                if '#' not in elem and '@' not in elem:
+                    new_lst.append(elem)
+            sentences.append(" ".join(new_lst))
+
+    return sentences
+
+def convert_to_sentences_tass2020(file):
+    sentences = []
+    with open(file) as csvfile:
+        csvreader = csv.reader(csvfile, delimiter='\t')
+        for line in csvreader:
+            line_lst = line[1].split()
+            new_lst = []
+            for elem in line_lst:
+                if "&amp;" in elem:
+                    elem = elem.replace("&amp;", "&")
+                if "&quot;" in elem:
+                    elem = elem.replace("&quot;", "\"")
+                if "&lt;" in elem:
+                    elem = elem.replace("&quot;", "<")
+                
+                if '#' not in elem and '@' not in elem and "http::" not in elem:
+                    new_lst.append(elem)
+            if len(new_lst) != 0:
+                sentences.append(" ".join(new_lst))
+
+    return sentences
+
+def convert_twitter_data_csv_to_standardized_form(source_file: str, delimiter_char: str, text_index: int, dest_file: str):
+    sentences = []
+    with open(source_file) as csvfile:
+        csvreader = csv.reader(csvfile, delimiter=delimiter_char)
+        for line in csvreader:
+            line_lst = line[text_index].split()
+            new_lst = []
+            for elem in line_lst:
+                if '#' not in elem and '@' not in elem:
+                    new_lst.append(elem)
+            if len(new_lst) > 1:
+                sentences.append(" ".join(new_lst))
+
+    with open(dest_file, 'w') as f:
+        for sentence in sentences:
+            f.write(f"{sentence}\n")
+
+def convert_twitter_data_txt_to_standardized_form(source_file: str, dest_file: str):
+    sentences = []
+    with open(source_file, "r") as f:
+        lines = f.readlines()
+        curr_sentence = ""
+        for line in lines:
+            data = line.split()
+            if len(data) == 0:
+                sentences.append(curr_sentence)
+                curr_sentence = ""
+            elif data[0] != "meta" and '#' not in data[0] and '@' not in data[0]:
+                curr_sentence += data[0] + " "
+    
+    with open(dest_file, 'w') as f:
+        for sentence in sentences:
+            f.write(f"{sentence}\n")
+
+
+if __name__ == "__main__":
+    main_path = 'standardized_text/'
+    convert_twitter_data_txt_to_standardized_form("sentimix2020.txt", (main_path + "spanglish/sentimix2020.out"))
+    #convert_twitter_data_to_standardized_form("sentiment140.csv", ",", 5, (main_path + "eng/sentiment140_converted.out"))
+    #convert_twitter_data_csv_to_standardized_form("combined_tass2020.tsv", "\t", 1, (main_path + "span/combined_tass2020_converted.out"))
+
+
 # Bank of printout statements for quick testing if needdd
 '''
 print(last_codeswitches)

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import sys
 import re
 
-# root directory we want to extract all the files from (in this case Printoht)
+# root directory we want to extract all the files from (in this case Printout)
 root = sys.argv[1]
 
 # initializes dictionary to later turn into Dataframe for pandas
@@ -54,13 +54,17 @@ df = pd.DataFrame(data=d)
 
 # Mass comment for different plots I found were useful to look at with regards to the data
 '''
+df.plot.box(notch=True)
 df.plot.hist(alpha=0.5)
 '''
-df.plot.box()
+#df.plot.hist(alpha=0.5)
+
 
 d["Average"] = []
 d["Average"].append(find_avg(d["Self"]))
 d["Average"].append(find_avg(d["Outside"]))
 
 print(d["Average"])
+plt.figure()
+plt.boxplot(df, notch=True)
 plt.show()
