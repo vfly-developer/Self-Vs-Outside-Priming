@@ -127,7 +127,7 @@ def convert_to_sentences_tass2020(file):
                 if "&lt;" in elem:
                     elem = elem.replace("&quot;", "<")
                 
-                if '#' not in elem and '@' not in elem and "http::" not in elem:
+                if '#' not in elem and '@' not in elem and "http:" not in elem:
                     new_lst.append(elem)
             if len(new_lst) != 0:
                 sentences.append(" ".join(new_lst))
@@ -142,7 +142,16 @@ def convert_twitter_data_csv_to_standardized_form(source_file: str, delimiter_ch
             line_lst = line[text_index].split()
             new_lst = []
             for elem in line_lst:
-                if '#' not in elem and '@' not in elem:
+                if "&amp;" in elem:
+                    elem = elem.replace("&amp;", "&")
+                if "&quot;" in elem:
+                    elem = elem.replace("&quot;", "\"")
+                if "&lt;" in elem:
+                    elem = elem.replace("&lt;", "<")
+                if "&gt;" in elem:
+                    elem = elem.replace("&gt;", ">")
+
+                if '#' not in elem and '@' not in elem and "http:" not in elem.lower() and "https:" not in elem.lower():
                     new_lst.append(elem)
             if len(new_lst) > 1:
                 sentences.append(" ".join(new_lst))
@@ -161,7 +170,7 @@ def convert_twitter_data_txt_to_standardized_form(source_file: str, dest_file: s
             if len(data) == 0:
                 sentences.append(curr_sentence)
                 curr_sentence = ""
-            elif data[0] != "meta" and '#' not in data[0] and '@' not in data[0]:
+            elif data[0] != "meta" and '#' not in data[0] and '@' not in data[0] and "http:" not in data[0].lower() and "https:" not in data[0].lower():
                 curr_sentence += data[0] + " "
     
     with open(dest_file, 'w') as f:
@@ -172,8 +181,8 @@ def convert_twitter_data_txt_to_standardized_form(source_file: str, dest_file: s
 if __name__ == "__main__":
     main_path = 'standardized_text/'
     convert_twitter_data_txt_to_standardized_form("sentimix2020.txt", (main_path + "spanglish/sentimix2020.out"))
-    #convert_twitter_data_to_standardized_form("sentiment140.csv", ",", 5, (main_path + "eng/sentiment140_converted.out"))
-    #convert_twitter_data_csv_to_standardized_form("combined_tass2020.tsv", "\t", 1, (main_path + "span/combined_tass2020_converted.out"))
+    convert_twitter_data_csv_to_standardized_form("sentiment140.csv", ",", 5, (main_path + "eng/sentiment140_converted.out"))
+    convert_twitter_data_csv_to_standardized_form("combined_tass2020.tsv", "\t", 1, (main_path + "span/combined_tass2020_converted.out"))
 
 
 # Bank of printout statements for quick testing if needdd
